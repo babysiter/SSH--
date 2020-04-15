@@ -1,0 +1,107 @@
+[genuitec-file-id="wc1-28"],[genuitec-lp-path="/mentor_sys/WebRoot/WEB-INF/css/head.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+@CHARSET "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.container {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+body{
+    background-color:white ;
+}
+/*head开始*/
+.head {
+    height:60px;
+    width:100%;
+    background-color: #0483d4;
+}
+.head .c {
+    height: 60px;
+    width: 500px;
+    float: left;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+.head .left span {
+    width:300px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    color:white;
+    float: left;
+}
+#logo {
+    padding-top: 2px;
+    float: left;
+}
+#userlogo {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+.head .right a {
+    height: 60px;
+    width: 60px;
+    display: block;
+    float: right;
+    padding: 16px;
+    box-sizing: border-box;
+}
+.head .right a:hover {
+    background-color: #68b5e5;
+}
+/*head结束*/
+a {
+	 text-decoration: none;
+}
+table {
+	margin :30px auto;
+	border: 1px solid black;
+}
+table tr td {
+	border:1px solid black;
+	text-align:center;
+	margin:3px 10px;
+}
+table tr th {
+	border:1px solid black;
+	text-align:center;
+	margin:3px 10px;
+}
+a:hover{
+	color:red;
+}
+#index {
+	margin:20px auto;
+	height:20px;
+	width:50px;
+	color:#ff00ff;	
+	display:block;
+}
+ul {
+	margin :30px auto;
+	height:300px;
+	width:300px;
+}
+#form {
+	margin :30px auto;
+	width:300px;
+	height:300px;
+	display:block;
+}
+#form label{
+	display:block;
+}
+h2 {
+	text-align:center;
+}
+#form span{
+	display:block;
+}

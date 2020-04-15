@@ -1,0 +1,152 @@
+[genuitec-file-id="wc1-29"],[genuitec-lp-path="/mentor_sys/WebRoot/WEB-INF/css/login.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.container {
+    width:1200px;
+    height:100%;
+    margin: 0 auto;
+}
+body{
+    background-color: #fafafa;
+}
+.head {
+    height:130px;
+    width:100%;
+}
+/*head开始*/
+.head .right,
+.head .left {
+    margin-top: 35px;
+    height: 50px;
+}
+.head .right {
+    width:200px;
+}
+.head .left {
+    float: left;
+    width:700px;
+}
+#logo {
+    padding-top: 2px;
+    float: left;
+}
+.head .left span {
+    width:300px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    color:#1069a4;
+    float: left;
+}
+.head .right {
+    float: right;
+    color:#1069a4;
+}
+.head .right button {
+    width:75px;
+    height:30px;
+    float: right;
+    border: 1px solid #1069a4;
+    border-radius: 10%;
+}
+.head .right button.left,
+.head .right button.right {
+    margin-top: 10px;
+}
+.head .right button.left {
+    color:  white;
+    background-color: #1069a4;
+}
+.head .right button.right {
+    color:  #1069a4;
+    background-color: white;
+}
+/*head部分结束*/
+/*main部分开始*/
+.main {
+    height: 470px;
+    width:100%;
+}
+.main .left_main {
+    float: left;
+    margin-right: 10px;
+}
+.main .right_main {
+    height:370px;
+    width: 330px;
+    padding: 15px;
+    background-color: #fcfcfc;
+    float: right;
+}
+.main h4 {
+    margin-bottom: 30px;
+}
+.right_main span,
+.right_main input[type="text"],
+.right_main input[type="password"]{
+    height: 30px;
+    float: left;
+    color:#b7b7b7;
+    box-sizing: border-box;
+}
+.main .user,
+.main .password,
+.main .code {
+    height: 40px;
+    line-height: 40px;
+    width: 280px;
+}
+.right_main span {
+    width: 55px;
+    line-height: 30px;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 5%;
+}
+.right_main input[type="text"],
+.right_main input[type="password"]{
+    width:210px;
+}
+#code1 {
+    width: 90px;
+}
+.main .code image {
+    margin-left: 20px;
+}
+.main input[type="submit"] {
+    width:300px;
+    height:35px;
+    background-color: #337ab7;
+    color:white;
+    border: none;
+}
+.main p {
+    padding: 15px;
+    margin-top: 20px;
+    height: 75px;
+    width: 300px;
+    border: none;
+    background-color: #f2dede;
+    color:#a94442;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+/*main部分结束*/
+/*bottom开始*/
+.bottom a {
+    display: block;
+    color:#8099af;
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+}
+/*bottom结束*/
+

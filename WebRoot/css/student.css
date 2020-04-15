@@ -1,0 +1,99 @@
+[genuitec-file-id="wc1-31"],[genuitec-lp-path="/mentor_sys/WebRoot/WEB-INF/css/student.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.container {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+body{
+    background-color:#f0f0f0 ;
+}
+/*head开始*/
+.head {
+    height:60px;
+    width:100%;
+    background-color: #0483d4;
+}
+.head .c {
+    height: 60px;
+    width: 500px;
+    float: left;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+.head .left span {
+    width:300px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    color:white;
+    float: left;
+}
+#logo {
+    padding-top: 2px;
+    float: left;
+}
+#userlogo {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+.head .right a {
+    height: 60px;
+    width: 60px;
+    display: block;
+    float: right;
+    padding: 16px;
+    box-sizing: border-box;
+}
+.head .right a:hover {
+    background-color: #68b5e5;
+}
+/*banner开始*/
+    .banner {
+        height: 80px;
+        line-height: 80px;
+        width:100%;
+        margin: 0 auto;
+        background-color: white;
+        text-align: center;
+    }
+/*banner结束*/
+/*topbanner开始*/
+.topBanner {
+    height: 40px;
+    width: 100%;
+    background-color: white;
+}
+.topBanner ul {
+    width: 350px;
+    height: 40px;
+    margin: 0 auto;
+}
+.topBanner ul li  {
+   float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.topBanner ul li a {
+    text-decoration: none;
+    width: 370px;
+    color:#68b5e5;
+    font-weight: 700;
+}
+.topBanner ul li a:hover {
+    color:red;
+}
+.topBanner ul li a:active {
+    color:purple;
+}
+/*topbanner结束*/
