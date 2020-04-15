@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd"> 
+<validators> 
+	<!-- 管理员校验 -->
+	<field name="admin.account">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>账号不能为空</message> 
+		</field-validator> 
+	</field> 
+	<field name="admin.password"> 
+		<field-validator type="requiredstring"> 
+			<param name="trim">true</param> 
+			<message>密码不能为空</message>
+		</field-validator>
+	</field>
+	
+	<!-- 学生校验 -->
+	
+	<field name="student.account">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>账号不能为空</message> 
+		</field-validator> 
+	</field> 
+	<field name="student.password">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>密码不能为空</message> 
+		</field-validator> 
+		<field-validator type="stringlength">  
+            <param name="minLength">3</param>  
+            <param name="maxLength">18</param>  
+            <message>为了您账号的安全，请设置3个字母以上的密码（最长可设置18个字母）</message>  
+        </field-validator>  
+	
+	</field> 
+	<field name="student.student_name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>姓名不能为空</message> 
+		</field-validator> 
+	</field> 
+	<field name="student.IDNumber"> 
+		<field-validator type="requiredstring"> 
+			<param name="trim">true</param> 
+			<message>身份证不能为空</message>
+		</field-validator>
+        <field-validator type="regex">
+    		<param name="expression"><![/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/]></param>
+    		<message>您输入的密码只能是字母和数组，且长度必须在4到25之间</message>
+  		 </field-validator>
+	</field>
+	<field name="student.sex"> 
+		<field-validator type="requiredstring"> 
+			<param name="trim">true</param> 
+			<message>身份证不能为空</message>
+		</field-validator>
+	</field>
+	<field name="student.phone"> 
+		<field-validator type="int"> 
+			<param name="min">9</param> 
+			<param name="max">11</param> 
+			<message>电话号必须是9-11位</message>
+		</field-validator>
+	</field>
+	
+	
+	<!-- 教师校验 -->
+	
+	<field name="teacher.account">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>账号不能为空</message> 
+		</field-validator> 
+	</field> 
+	<field name="teacher.password">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>密码不能为空</message> 
+		</field-validator> 
+		<field-validator type="stringlength">  
+            <param name="minLength">3</param>  
+            <param name="maxLength">18</param>  
+            <message>为了您账号的安全，请设置3个字母以上的密码（最长可设置18个字母）</message>  
+        </field-validator>  
+	
+	</field> 
+	<field name="teacher.teacher_name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>姓名不能为空</message> 
+		</field-validator> 
+	</field> 
+	<field name="teacher.IDNumber"> 
+		<field-validator type="requiredstring"> 
+			<param name="trim">true</param> 
+			<message>身份证不能为空</message>
+		</field-validator>
+        <field-validator type="regex">
+    		<param name="expression"><![/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/]></param>
+    		<message>您输入的密码只能是字母和数组，且长度必须在4到25之间</message>
+  		 </field-validator>
+	</field>
+	<field name="teacher.sex"> 
+		<field-validator type="requiredstring"> 
+			<param name="trim">true</param> 
+			<message>身份证不能为空</message>
+		</field-validator>
+	</field>
+	<field name="teacherphone"> 
+		<field-validator type="int"> 
+			<param name="min">9</param> 
+			<param name="max">11</param> 
+			<message>电话号必须是9-11位</message>
+		</field-validator>
+</validators>

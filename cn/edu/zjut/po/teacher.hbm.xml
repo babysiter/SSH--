@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping> 
+ 	<class name="cn.edu.zjut.po.teacher" table="teacher" catalog="hibernatepro">
+ 		 <id name="teacherID" type="int"> 
+			 <column name="teacherID" /> 
+			 <!-- 除了一对一主键映射都可以用 <generator class="increment" />  --> 
+			 <generator class="increment"/>
+	 	 </id> 
+	 	  <property name="account" type="string"> 
+	 	 	<column name="account" length="45" /> 
+	  	 </property>
+	  	 <property name="password" type="string"> 
+	 	 	<column name="password" length="45" /> 
+	  	 </property>
+	  	  <property name="IDNumber" type="string"> 
+	 	 	<column name="IDNumber" length="45" /> 
+	  	 </property>
+	  	 <property name="phone" type="string"> 
+	 	 	<column name="phone" length="45" /> 
+	  	 </property>
+	  	 <property name="office" type="string"> 
+	 	 	<column name="office" length="45" /> 
+	  	 </property>
+	  	  <property name="teacher_name" type="string"> 
+	 	 	<column name="teacher_name" length="45" /> 
+	  	 </property>
+	  	  <property name="address" type="string"> 
+	 	 	<column name="address" length="45" /> 
+	  	 </property>
+	  	 <property name="sex" type="int"> 
+	 	 	<column name="sex" /> 
+	  	 </property>
+	  	 
+	  	 <!-- <set name="teacher_course" inverse="false" cascade="all" lazy="true">
+	    	<key column="teacherID"></key>
+	    	<one-to-many class="cn.edu.zjut.po.teacher_course"/>
+	    </set> --> 
+	</class>
+ </hibernate-mapping>

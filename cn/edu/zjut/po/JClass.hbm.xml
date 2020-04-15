@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping> 
+ 	<class name="cn.edu.zjut.po.JClass" table="jclass" catalog="hibernatepro">
+ 		 <id name="classID" type="int"> 
+			 <column name="classID" /> 
+			 <!-- 除了一对一主键映射都可以用 <generator class="increment" />  --> 
+			 <generator class="increment"/>
+	 	 </id> 
+	  	 <property name="ClassNumber" type="int"> 
+	 	 	<column name="ClassNumber" /> 
+	  	 </property>
+	  	  <property name="grade" type="int"> 
+	 	 	<column name="grade" /> 
+	  	 </property>
+	  <!-- <set name="students" inverse="false" cascade="all" lazy="false">
+	    	<key column="classID"></key>
+	    	<one-to-many class="cn.edu.zjut.po.student"/>
+	    </set> -->	 
+	  	 <many-to-one name="major" class="cn.edu.zjut.po.major"
+			fetch="select" not-null="true" cascade="all">
+			<column name="majorID"></column>
+		</many-to-one>
+	</class>
+ </hibernate-mapping>

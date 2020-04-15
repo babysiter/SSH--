@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping> 
+ 	<class name="cn.edu.zjut.po.college" table="college" catalog="hibernatepro">
+	  <id name="collegeID" type="int"> 
+		  <column name="collegeID"/> 
+		  <generator class="increment"/>
+	  </id> 
+	  	<property name="college_name" type="string"> 
+	 	  <column name="college_name" length="45"/> 
+	  	</property>
+	  </class> 
+</hibernate-mapping>

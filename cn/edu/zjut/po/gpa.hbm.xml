@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping> 
+ 	<class name="cn.edu.zjut.po.Gpa" table="gpa" catalog="hibernatepro">
+ 		<composite-id name="ss" class="cn.edu.zjut.po.ss">
+ 			<key-many-to-one name="student" class="cn.edu.zjut.po.student" column="studentID" ></key-many-to-one>
+ 			<key-property name="semester" type="string" column="semester"></key-property>
+		</composite-id>
+		<property name="gpa" type="double"> 
+	 	 	<column name="gpa" /> 
+	  	 </property>
+	</class>
+ </hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping> 
+ 	<class name="cn.edu.zjut.po.teacher_course" table="teacher_course" catalog="hibernatepro">
+ 		  <id name="teacher_courseID" type="int"> 
+		  <column name="teacher_courseID"/> 
+		  <generator class="increment"></generator>
+	  </id> 
+	  <many-to-one name="teacher" class="cn.edu.zjut.po.teacher"
+		fetch="select" not-null="true" unique="true" cascade="all-delete-orphan">
+			<column name="teacherID"></column>
+		</many-to-one>
+		<many-to-one name="course" class="cn.edu.zjut.po.course"
+		fetch="select" not-null="true" unique="true" cascade="all-delete-orphan">
+			<column name="courseID"></column>
+		</many-to-one>
+		<many-to-one name="classroom" class="cn.edu.zjut.po.Classroom"
+		fetch="select" not-null="true" unique="true" cascade="all-delete-orphan">
+			<column name="classroomID"></column>
+		</many-to-one>
+		<property name="alPeople" type="int"> 
+ 	  	<column name="alPeople" /> 
+ 	  </property> 
+	  <property name="semester" type="string"> 
+ 	  	<column name="semester" length="45" /> 
+ 	  </property> 
+ 	</class>
+ </hibernate-mapping>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping> 
+ 	<class name="cn.edu.zjut.po.student" table="student" catalog="hibernatepro">
+ 		 <id name="studentID" type="int"> 
+			 <column name="studentID" /> 
+			 <!-- 除了一对一主键映射都可以用 <generator class="increment" />  --> 
+			 <generator class="increment"/>
+	 	 </id> 
+	 	  <property name="account" type="string"> 
+	 	 	<column name="account" length="20" /> 
+	  	 </property>
+	  	 <property name="password" type="string"> 
+	 	 	<column name="password" length="45" /> 
+	  	 </property>
+	  	  <property name="phone" type="string"> 
+	 	 	<column name="phone" length="45" /> 
+	  	 </property>
+	  	  <property name="address" type="string"> 
+	 	 	<column name="address" length="45" /> 
+	  	 </property>
+	  	  <property name="student_name" type="string"> 
+	 	 	<column name="student_name" length="45" /> 
+	  	 </property>
+	  	  <property name="IDNumber" type="string"> 
+	 	 	<column name="IDNumber" length="45" /> 
+	  	 </property>
+	  	 <property name="sex" type="int"> 
+	 	 	<column name="sex" /> 
+	  	 </property> 
+	  	  <property name="student_credit" type="int"> 
+	 	 	<column name="student_credit" /> 
+	  	 </property>
+	  	 
+	  	<many-to-one name="JClass" class="cn.edu.zjut.po.JClass"
+			fetch="select" not-null="true"  cascade="all">
+			<column name="classID"></column>
+		</many-to-one> 
+		
+		 <!-- <set name="student_course" inverse="false" cascade="all-delete-orphan" lazy="true">
+	    	<key column="studentID"></key>
+	    	<one-to-many class="cn.edu.zjut.po.student_course"/>
+	    </set> -->
+	</class>
+ </hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping> 
+ 	<class name="cn.edu.zjut.po.Classroom" table="classroom" catalog="hibernatepro">
+	  <id name="classroomID" type="int"> 
+		  <column name="classroomID"/> 
+		  <generator class="increment"/>
+	  </id> 
+	  	<property name="place" type="string"> 
+	 	  <column name="place" length="45"/> 
+	  	</property>
+	    <property name="time" type="string"> 
+	  	  <column name="time" length="45"/> 
+	    </property> 
+	    <property name="maxPeople" type="int"> 
+	  	  <column name="maxPeople" /> 
+	  	  </property> 
+	  </class> 
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping> 
+ 	<class name="cn.edu.zjut.po.course" table="course" catalog="hibernatepro">
+ 		 <id name="courseID" type="int"> 
+			 <column name="courseID" /> 
+			 <!-- 除了一对一主键映射都可以用 <generator class="increment" />  --> 
+			 <generator class="increment"/>
+	 	 </id> 
+	 	  <property name="courseName" type="string"> 
+	 	 	<column name="courseName" length="45" /> 
+	  	 </property>
+	  	 <property name="period" type="int"> 
+	 	 	<column name="period" /> 
+	  	 </property>
+	  	  <property name="credit" type="int"> 
+	 	 	<column name="credit" /> 
+	  	 </property>
+	</class>
+ </hibernate-mapping>

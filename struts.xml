@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="strutsBean" extends="struts-default" namespace="/">
+        <action name="*adminAction" class="adminAction" method="{1}">
+            <result name="success">/jsps/msg.jsp</result>
+            <result name="fail">/jsps/{1}.jsp</result>
+            <result name="input">/jsps/{1}.jsp</result>
+        </action>
+          <action name="*studentAction" class="studentAction" method="{1}">
+            <result name="success">/jsps/msg.jsp</result>
+            <result name="fail">/jsps/{1}.jsp</result>
+            <result name="input">/jsps/{1}.jsp</result>
+        </action>
+          <action name="*teacherAction" class="teacherAction" method="{1}">
+            <result name="success">/jsps/msg.jsp</result>
+            <result name="fail">/jsps/{1}.jsp</result>
+            <result name="input">/jsps/{1}.jsp</result>
+        </action>
+       
+       <action name="deleteTeacher_courseadminAction" class="adminAction" method="deleteTeacher_course">
+            <result name="success">/jsps/msg.jsp</result>
+            <result name="fail">/jsps/allTeacher_courses.jsp</result>
+        </action>
+       <action name="chooseCoursestudentAction" class="studentAction" method="chooseCourse">
+            <result name="success">/jsps/msg.jsp</result>
+            <result name="fail">/jsps/chooseCourse.jsp</result>
+        </action>
+         <action name="retiredstudentAction" class="studentAction" method="retired">
+            <result name="success">/jsps/msg.jsp</result>
+            <result name="fail">/jsps/chooseCourse.jsp</result>
+        </action>
+        <action name="getAllTeachers" class="adminAction" method="getAllTeachers">
+            <result name="success">/jsps/allTeacher.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+        <action name="getAllStudents" class="adminAction" method="getAllStudents">
+            <result name="success">/jsps/allStudent.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+        <action name="getAllCourses" class="adminAction" method="getAllCourses">
+            <result name="success">/jsps/allCourse.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+        <action name="getAllAdmins" class="adminAction" method="getAllAdmins">
+            <result name="success">/jsps/allAdmin.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+       <action name="getAllTeacher_courses" class="adminAction" method="getAllTeacher_courses">
+            <result name="success">/jsps/allTeacher_courses.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+         <action name="getAllClassrooms" class="adminAction" method="getAllClassrooms">
+            <result name="success">/jsps/allClassroom.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+       
+        <action name="getAllCoursesteacherAction" class="teacherAction" method="getAllCourses">
+            <result name="success">/jsps/allTeacher_courses.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+         <action name="getAllStudentsteacherAction" class="teacherAction" method="getAllStudents">
+            <result name="success">/jsps/courseStudent.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+        <action name="getAllStudent_coursesstudentAction" class="studentAction" method="getAllStudent_course">
+            <result name="success">/jsps/timetable.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+       
+        <action name="getGpa" class="studentAction" method="getGpa">
+            <result name="success">/jsps/gpa.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+          <action name="getStudent_score" class="studentAction" method="getAllStudent_course">
+            <result name="success">/jsps/allStudent_course.jsp</result>
+            <result name="fail">/jsps/msg.jsp</result>
+        </action>
+        
+    </package>
+</struts>

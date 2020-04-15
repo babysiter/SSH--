@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	
+	<context:component-scan base-package="cn.edu.zjut.service"/> 
+	<!--  配置内部java文件 -->
+	<bean id="loggingAspect" class="cn.edu.zjut.aop.LoggingAspect"/>
+	<bean id="adminDao" class="cn.edu.zjut.dao.adminDao"/>
+	<bean id="classroomDao" class="cn.edu.zjut.dao.classroomDao"/>
+	<bean id="collegeDao" class="cn.edu.zjut.dao.collegeDao"/>
+	<bean id="courseDao" class="cn.edu.zjut.dao.courseDao"/>
+	<bean id="JClassDao" class="cn.edu.zjut.dao.JClassDao"/>
+	<bean id="majorDao" class="cn.edu.zjut.dao.majorDao"/>
+	<bean id="student_courseDao" class="cn.edu.zjut.dao.student_courseDao"/>
+	<bean id="teacher_courseDao" class="cn.edu.zjut.dao.teacher_courseDao"/>
+	<bean id="teacherDao" class="cn.edu.zjut.dao.teacherDao"/>
+	<bean id="studentDao" class="cn.edu.zjut.dao.studentDao"/>
+	<bean id="gpaDao" class="cn.edu.zjut.dao.gpaDao"/>
+	
+	<bean id="adminService" class="cn.edu.zjut.service.adminService">
+		<property name="adminDao" ref="adminDao"/>
+		<property name="studentDao" ref="studentDao"/>
+		<property name="teacherDao" ref="teacherDao"/>
+		<property name="courseDao" ref="courseDao"/>
+		<property name="teacher_courseDao" ref="teacher_courseDao"/>
+		<property name="classroomDao" ref="classroomDao"/>
+		<property name="JClassDao" ref="JClassDao"/>
+		<property name="majorDao" ref="majorDao"/>
+	</bean>
+	<bean id="studentService" class="cn.edu.zjut.service.studentService">
+		<property name="studentDao" ref="studentDao"/>
+		<property name="teacher_courseDao" ref="teacher_courseDao"/>
+		<property name="student_courseDao" ref="student_courseDao"/>
+		<property name="classroomDao" ref="classroomDao"/>
+		<property name="gpaDao" ref="gpaDao"/>
+	</bean>
+	<bean id="teacherService" class="cn.edu.zjut.service.teacherService">
+		<property name="teacherDao" ref="teacherDao"/>
+		<property name="teacher_courseDao" ref="teacher_courseDao"/>
+		<property name="student_courseDao" ref="student_courseDao"/>
+		<property name="studentDao" ref="studentDao"/>
+		<property name="gpaDao" ref="gpaDao"/>
+	</bean>
+	<bean id="adminAction" class="cn.edu.zjut.action.adminAction">
+		<property name="adminService" ref="adminService"/>
+	</bean>
+	<bean id="studentAction" class="cn.edu.zjut.action.studentAction">
+		<property name="studentService" ref="studentService"/>
+	</bean>
+	<bean id="teacherAction" class="cn.edu.zjut.action.teacherAction">
+		<property name="teacherService" ref="teacherService"/>
+	</bean>
+	<!-- 配置数据源 -->
+	<!-- 导入资源文件 -->
+	<context:property-placeholder location="classpath:db.properties"/>
+	
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="initialPoolSize" value="${jdbc.initPoolSize}"></property>
+		<property name="maxPoolSize" value="${jdbc.maxPoolSize}"></property>
+	</bean>
+	
+	<!-- 配置 Hibernate 的 SessionFactory 实例: 通过 Spring 提供的 LocalSessionFactoryBean 进行配置 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- 配置数据源属性 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 使用 hibernateProperties 属相来配置 Hibernate 原生的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<prop key="connection.autocommit">false</prop>
+			</props>
+		</property>
+		<!-- 配置 hibernate 映射文件的位置及名称, 可以使用通配符 -->
+		<property name="mappingResources" >
+			<list> 
+				<value>cn/edu/zjut/po/admin.hbm.xml</value>
+				<value>cn/edu/zjut/po/Classroom.hbm.xml</value>
+				<value>cn/edu/zjut/po/college.hbm.xml</value>
+				<value>cn/edu/zjut/po/course.hbm.xml</value>
+				<value>cn/edu/zjut/po/gpa.hbm.xml</value>
+				<value>cn/edu/zjut/po/JClass.hbm.xml</value>
+				<value>cn/edu/zjut/po/major.hbm.xml</value>
+				<value>cn/edu/zjut/po/student_course.hbm.xml</value>
+				<value>cn/edu/zjut/po/teacher_course.hbm.xml</value>
+				<value>cn/edu/zjut/po/teacher.hbm.xml</value>
+				<value>cn/edu/zjut/po/student.hbm.xml</value>
+				<value>cn/edu/zjut/po/student_score.hbm.xml</value>
+			 </list>
+		</property>
+	</bean>
+	<!-- 配置 Spring 的声明式事务 -->
+
+	<!-- 1. 配置事务管理器 -->
+	<bean class="org.springframework.orm.hibernate4.HibernateTransactionManager" id="transactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- 2. 配置事务属性, 需要事务管理器 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="chamge*" propagation="REQUIRES_NEW"/>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- 开启事务注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!-- 3. 配置事务切点, 并把切点和事务属性关联起来--> 
+	<aop:config>
+		<aop:pointcut id="txPointcut" expression="execution(* cn.edu.zjut.service.adminService.add*(..))"/>
+		<aop:pointcut id="Pointcut" expression="execution(* cn.edu.zjut.service.adminService.change*(..))"/>
+		<aop:pointcut id="dePointcut" expression="execution(* cn.edu.zjut.service.adminService.delete*(..))"/>
+		<aop:aspect  ref="loggingAspect">
+			<aop:around pointcut-ref="txPointcut" method="aroundMethod"/>
+			<aop:around pointcut-ref="Pointcut" method="aroundMethod"/>
+			<aop:around pointcut-ref="dePointcut" method="aroundMethod"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
